@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+
+console.log('今天晚上吃点啥');
+//web worker  模拟多线程   以文件为单位    实现子线程执行咱们的代码逻辑
+    var myWork = new Worker('js/myWork.js');
+//    发送消息
+    myWork.postMessage(50000)
+   myWork.onmessage = function (event) {
+     console.log(event.data);
+   }
+
+
+
+</script>
+</body>
+</html>
